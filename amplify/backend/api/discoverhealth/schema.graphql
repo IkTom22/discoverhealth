@@ -1,0 +1,88 @@
+type Disease @model{
+    id: ID!
+    name: String! 
+    overview: String
+    symptoms: String
+    causes: [String]
+    effects: [String]
+    complications: [String]
+    preventions: [String]
+    medication: Medication @connection(name:"byMedication")
+    organ: Organ @connection(name: "byOrgan")
+    animalProducts: [AnimalProduct] @connection(name: "byAnimal")
+    plantDiet: PlantDiet @connection(name: "byPlantDiet")
+    plants: [Plant] @connection(name: "byPlant")
+    tests: [Test]@connection(name: "byTest")
+}
+type Medication @model {
+  id: ID!
+  name: String!
+  description: String
+  sideEffects: [String]
+  diseaseID: String!
+  disease: Disease @connection(name:"byMedication")
+}
+
+type Organ @model {
+  id: ID!
+  name: String!
+  description:[String]
+  diseaseID: String!
+  disease: Disease @connection(name: "byOrgan")
+}
+type AnimalProduct @model {
+    id: ID!
+    family: String!
+    name: String
+    diseaseID: String!
+    disease: Disease @connection(name: "byAnimal")
+    description: [String]
+    animalTests: [AnimalTest] @connection (name:"byAnimalProduct")
+}
+
+type PlantDiet @model {
+    id: ID!
+    name: String
+    diseaseID: String!
+    disease: Disease @connection(name: "byPlantDiet")
+    description: [String]
+}
+
+type Plant @model {
+    id: ID!
+    family: String!
+    name: String!
+    diseaseID: String!
+    disease: Disease @connection(name: "byPlant")
+    description: [String]
+    caractaristics: [String]
+    plantTests: [PlantTest] @connection (name:"byPlantTest")
+}
+
+type AnimalTest @model {
+    id: ID!
+    name: String
+    subject: String
+    result: String
+    reference: String  
+    animalPdtID: String!
+    animalPdt: AnimalProduct @connection (name:"byAnimalProduct")
+}
+type Test @model {
+    id: ID!
+    name: String
+    subject: String
+    result: String
+    reference: String  
+    diseaseID: String!
+    disease: Disease @connection(name: "byTest")
+}
+type PlantTest @model {
+    id: ID!
+    name: String
+    subject: String
+    result: String
+    reference: String  
+    plantID: String!
+    plant: Plant @connection (name:"byPlantTest")
+}
