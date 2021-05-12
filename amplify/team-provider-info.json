@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-discoverhealth-dev-75409-authRole",
+      "UnauthRoleArn": "arn:aws:iam::927371221019:role/amplify-discoverhealth-dev-75409-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::927371221019:role/amplify-discoverhealth-dev-75409-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-discoverhealth-dev-75409-deployment",
+      "UnauthRoleName": "amplify-discoverhealth-dev-75409-unauthRole",
+      "StackName": "amplify-discoverhealth-dev-75409",
+      "StackId": "arn:aws:cloudformation:us-east-2:927371221019:stack/amplify-discoverhealth-dev-75409/d52771e0-b35b-11eb-9fa6-026c3d647620",
+      "AmplifyAppId": "d1r7vjce78giwf"
+    }
+  }
+}
