@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+:root {
+  --amplify-font-family: 'Roboto', ‘Arial’, ‘sans-serif’;
+  --themeColor: rgb(16, 190, 10);
+  --hoverColor: rgb(222, 247, 6);
+  --amplify-primary-color: rgb(16, 190, 10);
+  --amplify-primary-tint: rgb(115, 230, 112);
+  --amplify-primary-shade: rgb(101, 170, 99);
+}

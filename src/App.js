@@ -1,21 +1,19 @@
-import Amplify from 'aws-amplify';
-import awsConfig from './aws-exports';
-import {AmplifyAuthenticator, AmplifySignOut}from '@aws-amplify/ui-react';
 
-import './App.css';
-
-Amplify.configure(awsConfig);
-
+import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import MainApp from './MainApp';
 
 function App() {
   return (
-    <AmplifyAuthenticator>
-      <div className="App">
-        <AmplifySignOut />
-        <h1>WELCOME TO DISCOVER HEALTH</h1>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <MainApp/>
+        </Route>
         
-      </div>
-    </AmplifyAuthenticator>
+      </Switch>
+    </BrowserRouter>
+
     
   );
 }
