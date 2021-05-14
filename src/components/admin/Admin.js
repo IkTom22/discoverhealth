@@ -1,25 +1,26 @@
 import React from 'react';
 import Amplify from 'aws-amplify';
-import awsConfig from './aws-exports';
+import awsConfig from '../../aws-exports';
 import {AmplifyAuthenticator}from '@aws-amplify/ui-react';
 
+import AddDisease from '../Disease/AddDisease'
 import Container from '@material-ui/core/Container';
 
-import './App.css';
+import '../../App.css';
 
 
 
 Amplify.configure(awsConfig);
 
-function MainApp(){
+function Admin(){
     return (
         <AmplifyAuthenticator>
             <Container maxWidth="lg">
                 
-                I am MainApp
+                <AddDisease />
             </Container>
         </AmplifyAuthenticator>
     )
 }
 
-export default MainApp;
+export default Admin;

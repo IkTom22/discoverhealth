@@ -1,7 +1,7 @@
 import React from 'react';
 import {AmplifySignOut}from '@aws-amplify/ui-react';
 import { makeStyles } from '@material-ui/core/styles';
-import {Typography,  Toolbar, AppBar, Button } from '@material-ui/core';
+import {Typography,  Toolbar, AppBar} from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -38,10 +38,8 @@ const MenuBar = ()=>{
                     <Typography variant="h5" edge="start" className={classes.title}>
                         Discover Health
                     </Typography>
-                    
                    <AmplifySignOut className={classes.menuButton}/>
                 </Toolbar>
-                
             </AppBar>
         </div>
         

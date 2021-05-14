@@ -1,6 +1,7 @@
 type Disease @model{
     id: ID!
     name: String! 
+    knownAs: [String]
     overview: String
     symptoms: String
     causes: [String]
