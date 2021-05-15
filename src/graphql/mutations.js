@@ -9,6 +9,7 @@ export const createDisease = /* GraphQL */ `
     createDisease(input: $input, condition: $condition) {
       id
       name
+      knownAs
       overview
       symptoms
       causes
@@ -24,6 +25,7 @@ export const createDisease = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -44,6 +46,7 @@ export const createDisease = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -75,6 +78,7 @@ export const createDisease = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -127,6 +131,7 @@ export const updateDisease = /* GraphQL */ `
     updateDisease(input: $input, condition: $condition) {
       id
       name
+      knownAs
       overview
       symptoms
       causes
@@ -142,6 +147,7 @@ export const updateDisease = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -162,6 +168,7 @@ export const updateDisease = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -193,6 +200,7 @@ export const updateDisease = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -245,6 +253,7 @@ export const deleteDisease = /* GraphQL */ `
     deleteDisease(input: $input, condition: $condition) {
       id
       name
+      knownAs
       overview
       symptoms
       causes
@@ -260,6 +269,7 @@ export const deleteDisease = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -280,6 +290,7 @@ export const deleteDisease = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -311,6 +322,7 @@ export const deleteDisease = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -369,6 +381,7 @@ export const createMedication = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -431,6 +444,7 @@ export const updateMedication = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -493,6 +507,7 @@ export const deleteMedication = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -554,6 +569,7 @@ export const createOrgan = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -615,6 +631,7 @@ export const updateOrgan = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -676,6 +693,7 @@ export const deleteOrgan = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -737,6 +755,7 @@ export const createAnimalProduct = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -812,6 +831,7 @@ export const updateAnimalProduct = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -887,6 +907,7 @@ export const deleteAnimalProduct = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -961,6 +982,7 @@ export const createPlantDiet = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -1022,6 +1044,7 @@ export const updatePlantDiet = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -1083,6 +1106,7 @@ export const deletePlantDiet = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -1145,6 +1169,7 @@ export const createPlant = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -1221,6 +1246,7 @@ export const updatePlant = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -1297,6 +1323,7 @@ export const deletePlant = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -1380,6 +1407,7 @@ export const createAnimalTest = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -1421,6 +1449,7 @@ export const updateAnimalTest = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -1462,6 +1491,7 @@ export const deleteAnimalTest = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -1498,6 +1528,7 @@ export const createTest = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -1561,6 +1592,7 @@ export const updateTest = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -1624,6 +1656,7 @@ export const deleteTest = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -1692,6 +1725,7 @@ export const createPlantTest = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -1734,6 +1768,7 @@ export const updatePlantTest = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -1776,6 +1811,7 @@ export const deletePlantTest = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes

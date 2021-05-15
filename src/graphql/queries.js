@@ -6,6 +6,7 @@ export const getDisease = /* GraphQL */ `
     getDisease(id: $id) {
       id
       name
+      knownAs
       overview
       symptoms
       causes
@@ -21,6 +22,7 @@ export const getDisease = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -41,6 +43,7 @@ export const getDisease = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -72,6 +75,7 @@ export const getDisease = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -126,6 +130,7 @@ export const listDiseases = /* GraphQL */ `
       items {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -184,6 +189,7 @@ export const getMedication = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -248,6 +254,7 @@ export const listMedications = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -274,6 +281,7 @@ export const getOrgan = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -337,6 +345,7 @@ export const listOrgans = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -363,6 +372,7 @@ export const getAnimalProduct = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -440,6 +450,7 @@ export const listAnimalProducts = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -469,6 +480,7 @@ export const getPlantDiet = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -532,6 +544,7 @@ export const listPlantDiets = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -559,6 +572,7 @@ export const getPlant = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -637,6 +651,7 @@ export const listPlants = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -675,6 +690,7 @@ export const getAnimalTest = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -738,6 +754,7 @@ export const getTest = /* GraphQL */ `
       disease {
         id
         name
+        knownAs
         overview
         symptoms
         causes
@@ -803,6 +820,7 @@ export const listTests = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
@@ -836,6 +854,7 @@ export const getPlantTest = /* GraphQL */ `
         disease {
           id
           name
+          knownAs
           overview
           symptoms
           causes
