@@ -1,6 +1,7 @@
 type Disease @model{
     id: ID!
     name: String! 
+    slug:String
     knownAs: [String]
     overview: String
     symptoms: String
@@ -18,6 +19,7 @@ type Disease @model{
 type Medication @model {
   id: ID!
   name: String!
+  slug: String
   description: String
   sideEffects: [String]
   diseaseID: String!
@@ -27,6 +29,7 @@ type Medication @model {
 type Organ @model {
   id: ID!
   name: String!
+  slug: String
   description:[String]
   diseaseID: String!
   disease: Disease @connection(name: "byOrgan")
@@ -35,6 +38,7 @@ type AnimalProduct @model {
     id: ID!
     family: String!
     name: String
+    slug: String
     diseaseID: String!
     disease: Disease @connection(name: "byAnimal")
     description: [String]
@@ -44,6 +48,7 @@ type AnimalProduct @model {
 type PlantDiet @model {
     id: ID!
     name: String
+    slug: String
     diseaseID: String!
     disease: Disease @connection(name: "byPlantDiet")
     description: [String]
@@ -53,6 +58,7 @@ type Plant @model {
     id: ID!
     family: String!
     name: String!
+    slug: String
     diseaseID: String!
     disease: Disease @connection(name: "byPlant")
     description: [String]
@@ -63,6 +69,7 @@ type Plant @model {
 type AnimalTest @model {
     id: ID!
     name: String
+    slug: String
     subject: String
     result: String
     reference: String  
@@ -72,6 +79,7 @@ type AnimalTest @model {
 type Test @model {
     id: ID!
     name: String
+    slug: String
     subject: String
     result: String
     reference: String  
@@ -81,6 +89,7 @@ type Test @model {
 type PlantTest @model {
     id: ID!
     name: String
+    slug: String
     subject: String
     result: String
     reference: String  

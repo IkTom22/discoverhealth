@@ -6,6 +6,7 @@ export const onCreateDisease = /* GraphQL */ `
     onCreateDisease {
       id
       name
+      slug
       knownAs
       overview
       symptoms
@@ -16,12 +17,14 @@ export const onCreateDisease = /* GraphQL */ `
       medication {
         id
         name
+        slug
         description
         sideEffects
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -38,11 +41,13 @@ export const onCreateDisease = /* GraphQL */ `
       organ {
         id
         name
+        slug
         description
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -61,6 +66,7 @@ export const onCreateDisease = /* GraphQL */ `
           id
           family
           name
+          slug
           diseaseID
           description
           createdAt
@@ -71,10 +77,12 @@ export const onCreateDisease = /* GraphQL */ `
       plantDiet {
         id
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -94,6 +102,7 @@ export const onCreateDisease = /* GraphQL */ `
           id
           family
           name
+          slug
           diseaseID
           description
           caractaristics
@@ -106,6 +115,7 @@ export const onCreateDisease = /* GraphQL */ `
         items {
           id
           name
+          slug
           subject
           result
           reference
@@ -125,6 +135,7 @@ export const onUpdateDisease = /* GraphQL */ `
     onUpdateDisease {
       id
       name
+      slug
       knownAs
       overview
       symptoms
@@ -135,12 +146,14 @@ export const onUpdateDisease = /* GraphQL */ `
       medication {
         id
         name
+        slug
         description
         sideEffects
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -157,11 +170,13 @@ export const onUpdateDisease = /* GraphQL */ `
       organ {
         id
         name
+        slug
         description
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -180,6 +195,7 @@ export const onUpdateDisease = /* GraphQL */ `
           id
           family
           name
+          slug
           diseaseID
           description
           createdAt
@@ -190,10 +206,12 @@ export const onUpdateDisease = /* GraphQL */ `
       plantDiet {
         id
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -213,6 +231,7 @@ export const onUpdateDisease = /* GraphQL */ `
           id
           family
           name
+          slug
           diseaseID
           description
           caractaristics
@@ -225,6 +244,7 @@ export const onUpdateDisease = /* GraphQL */ `
         items {
           id
           name
+          slug
           subject
           result
           reference
@@ -244,6 +264,7 @@ export const onDeleteDisease = /* GraphQL */ `
     onDeleteDisease {
       id
       name
+      slug
       knownAs
       overview
       symptoms
@@ -254,12 +275,14 @@ export const onDeleteDisease = /* GraphQL */ `
       medication {
         id
         name
+        slug
         description
         sideEffects
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -276,11 +299,13 @@ export const onDeleteDisease = /* GraphQL */ `
       organ {
         id
         name
+        slug
         description
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -299,6 +324,7 @@ export const onDeleteDisease = /* GraphQL */ `
           id
           family
           name
+          slug
           diseaseID
           description
           createdAt
@@ -309,10 +335,12 @@ export const onDeleteDisease = /* GraphQL */ `
       plantDiet {
         id
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -332,6 +360,7 @@ export const onDeleteDisease = /* GraphQL */ `
           id
           family
           name
+          slug
           diseaseID
           description
           caractaristics
@@ -344,6 +373,7 @@ export const onDeleteDisease = /* GraphQL */ `
         items {
           id
           name
+          slug
           subject
           result
           reference
@@ -363,12 +393,14 @@ export const onCreateMedication = /* GraphQL */ `
     onCreateMedication {
       id
       name
+      slug
       description
       sideEffects
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -379,6 +411,7 @@ export const onCreateMedication = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -388,6 +421,7 @@ export const onCreateMedication = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -399,6 +433,7 @@ export const onCreateMedication = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -423,12 +458,14 @@ export const onUpdateMedication = /* GraphQL */ `
     onUpdateMedication {
       id
       name
+      slug
       description
       sideEffects
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -439,6 +476,7 @@ export const onUpdateMedication = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -448,6 +486,7 @@ export const onUpdateMedication = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -459,6 +498,7 @@ export const onUpdateMedication = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -483,12 +523,14 @@ export const onDeleteMedication = /* GraphQL */ `
     onDeleteMedication {
       id
       name
+      slug
       description
       sideEffects
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -499,6 +541,7 @@ export const onDeleteMedication = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -508,6 +551,7 @@ export const onDeleteMedication = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -519,6 +563,7 @@ export const onDeleteMedication = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -543,11 +588,13 @@ export const onCreateOrgan = /* GraphQL */ `
     onCreateOrgan {
       id
       name
+      slug
       description
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -558,6 +605,7 @@ export const onCreateOrgan = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -567,6 +615,7 @@ export const onCreateOrgan = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -578,6 +627,7 @@ export const onCreateOrgan = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -602,11 +652,13 @@ export const onUpdateOrgan = /* GraphQL */ `
     onUpdateOrgan {
       id
       name
+      slug
       description
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -617,6 +669,7 @@ export const onUpdateOrgan = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -626,6 +679,7 @@ export const onUpdateOrgan = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -637,6 +691,7 @@ export const onUpdateOrgan = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -661,11 +716,13 @@ export const onDeleteOrgan = /* GraphQL */ `
     onDeleteOrgan {
       id
       name
+      slug
       description
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -676,6 +733,7 @@ export const onDeleteOrgan = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -685,6 +743,7 @@ export const onDeleteOrgan = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -696,6 +755,7 @@ export const onDeleteOrgan = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -721,10 +781,12 @@ export const onCreateAnimalProduct = /* GraphQL */ `
       id
       family
       name
+      slug
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -735,6 +797,7 @@ export const onCreateAnimalProduct = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -744,6 +807,7 @@ export const onCreateAnimalProduct = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -755,6 +819,7 @@ export const onCreateAnimalProduct = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -774,6 +839,7 @@ export const onCreateAnimalProduct = /* GraphQL */ `
         items {
           id
           name
+          slug
           subject
           result
           reference
@@ -794,10 +860,12 @@ export const onUpdateAnimalProduct = /* GraphQL */ `
       id
       family
       name
+      slug
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -808,6 +876,7 @@ export const onUpdateAnimalProduct = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -817,6 +886,7 @@ export const onUpdateAnimalProduct = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -828,6 +898,7 @@ export const onUpdateAnimalProduct = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -847,6 +918,7 @@ export const onUpdateAnimalProduct = /* GraphQL */ `
         items {
           id
           name
+          slug
           subject
           result
           reference
@@ -867,10 +939,12 @@ export const onDeleteAnimalProduct = /* GraphQL */ `
       id
       family
       name
+      slug
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -881,6 +955,7 @@ export const onDeleteAnimalProduct = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -890,6 +965,7 @@ export const onDeleteAnimalProduct = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -901,6 +977,7 @@ export const onDeleteAnimalProduct = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -920,6 +997,7 @@ export const onDeleteAnimalProduct = /* GraphQL */ `
         items {
           id
           name
+          slug
           subject
           result
           reference
@@ -939,10 +1017,12 @@ export const onCreatePlantDiet = /* GraphQL */ `
     onCreatePlantDiet {
       id
       name
+      slug
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -953,6 +1033,7 @@ export const onCreatePlantDiet = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -962,6 +1043,7 @@ export const onCreatePlantDiet = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -973,6 +1055,7 @@ export const onCreatePlantDiet = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -998,10 +1081,12 @@ export const onUpdatePlantDiet = /* GraphQL */ `
     onUpdatePlantDiet {
       id
       name
+      slug
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -1012,6 +1097,7 @@ export const onUpdatePlantDiet = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -1021,6 +1107,7 @@ export const onUpdatePlantDiet = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -1032,6 +1119,7 @@ export const onUpdatePlantDiet = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -1057,10 +1145,12 @@ export const onDeletePlantDiet = /* GraphQL */ `
     onDeletePlantDiet {
       id
       name
+      slug
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -1071,6 +1161,7 @@ export const onDeletePlantDiet = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -1080,6 +1171,7 @@ export const onDeletePlantDiet = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -1091,6 +1183,7 @@ export const onDeletePlantDiet = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -1117,10 +1210,12 @@ export const onCreatePlant = /* GraphQL */ `
       id
       family
       name
+      slug
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -1131,6 +1226,7 @@ export const onCreatePlant = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -1140,6 +1236,7 @@ export const onCreatePlant = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -1151,6 +1248,7 @@ export const onCreatePlant = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -1171,6 +1269,7 @@ export const onCreatePlant = /* GraphQL */ `
         items {
           id
           name
+          slug
           subject
           result
           reference
@@ -1191,10 +1290,12 @@ export const onUpdatePlant = /* GraphQL */ `
       id
       family
       name
+      slug
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -1205,6 +1306,7 @@ export const onUpdatePlant = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -1214,6 +1316,7 @@ export const onUpdatePlant = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -1225,6 +1328,7 @@ export const onUpdatePlant = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -1245,6 +1349,7 @@ export const onUpdatePlant = /* GraphQL */ `
         items {
           id
           name
+          slug
           subject
           result
           reference
@@ -1265,10 +1370,12 @@ export const onDeletePlant = /* GraphQL */ `
       id
       family
       name
+      slug
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -1279,6 +1386,7 @@ export const onDeletePlant = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -1288,6 +1396,7 @@ export const onDeletePlant = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -1299,6 +1408,7 @@ export const onDeletePlant = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -1319,6 +1429,7 @@ export const onDeletePlant = /* GraphQL */ `
         items {
           id
           name
+          slug
           subject
           result
           reference
@@ -1338,6 +1449,7 @@ export const onCreateAnimalTest = /* GraphQL */ `
     onCreateAnimalTest {
       id
       name
+      slug
       subject
       result
       reference
@@ -1346,10 +1458,12 @@ export const onCreateAnimalTest = /* GraphQL */ `
         id
         family
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -1377,6 +1491,7 @@ export const onUpdateAnimalTest = /* GraphQL */ `
     onUpdateAnimalTest {
       id
       name
+      slug
       subject
       result
       reference
@@ -1385,10 +1500,12 @@ export const onUpdateAnimalTest = /* GraphQL */ `
         id
         family
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -1416,6 +1533,7 @@ export const onDeleteAnimalTest = /* GraphQL */ `
     onDeleteAnimalTest {
       id
       name
+      slug
       subject
       result
       reference
@@ -1424,10 +1542,12 @@ export const onDeleteAnimalTest = /* GraphQL */ `
         id
         family
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -1455,6 +1575,7 @@ export const onCreateTest = /* GraphQL */ `
     onCreateTest {
       id
       name
+      slug
       subject
       result
       reference
@@ -1462,6 +1583,7 @@ export const onCreateTest = /* GraphQL */ `
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -1472,6 +1594,7 @@ export const onCreateTest = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -1481,6 +1604,7 @@ export const onCreateTest = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -1492,6 +1616,7 @@ export const onCreateTest = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -1516,6 +1641,7 @@ export const onUpdateTest = /* GraphQL */ `
     onUpdateTest {
       id
       name
+      slug
       subject
       result
       reference
@@ -1523,6 +1649,7 @@ export const onUpdateTest = /* GraphQL */ `
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -1533,6 +1660,7 @@ export const onUpdateTest = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -1542,6 +1670,7 @@ export const onUpdateTest = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -1553,6 +1682,7 @@ export const onUpdateTest = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -1577,6 +1707,7 @@ export const onDeleteTest = /* GraphQL */ `
     onDeleteTest {
       id
       name
+      slug
       subject
       result
       reference
@@ -1584,6 +1715,7 @@ export const onDeleteTest = /* GraphQL */ `
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -1594,6 +1726,7 @@ export const onDeleteTest = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -1603,6 +1736,7 @@ export const onDeleteTest = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -1614,6 +1748,7 @@ export const onDeleteTest = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -1638,6 +1773,7 @@ export const onCreatePlantTest = /* GraphQL */ `
     onCreatePlantTest {
       id
       name
+      slug
       subject
       result
       reference
@@ -1646,10 +1782,12 @@ export const onCreatePlantTest = /* GraphQL */ `
         id
         family
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -1678,6 +1816,7 @@ export const onUpdatePlantTest = /* GraphQL */ `
     onUpdatePlantTest {
       id
       name
+      slug
       subject
       result
       reference
@@ -1686,10 +1825,12 @@ export const onUpdatePlantTest = /* GraphQL */ `
         id
         family
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -1718,6 +1859,7 @@ export const onDeletePlantTest = /* GraphQL */ `
     onDeletePlantTest {
       id
       name
+      slug
       subject
       result
       reference
@@ -1726,10 +1868,12 @@ export const onDeletePlantTest = /* GraphQL */ `
         id
         family
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms

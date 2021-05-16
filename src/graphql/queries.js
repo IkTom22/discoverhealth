@@ -6,6 +6,7 @@ export const getDisease = /* GraphQL */ `
     getDisease(id: $id) {
       id
       name
+      slug
       knownAs
       overview
       symptoms
@@ -16,12 +17,14 @@ export const getDisease = /* GraphQL */ `
       medication {
         id
         name
+        slug
         description
         sideEffects
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -38,11 +41,13 @@ export const getDisease = /* GraphQL */ `
       organ {
         id
         name
+        slug
         description
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -61,6 +66,7 @@ export const getDisease = /* GraphQL */ `
           id
           family
           name
+          slug
           diseaseID
           description
           createdAt
@@ -71,10 +77,12 @@ export const getDisease = /* GraphQL */ `
       plantDiet {
         id
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -94,6 +102,7 @@ export const getDisease = /* GraphQL */ `
           id
           family
           name
+          slug
           diseaseID
           description
           caractaristics
@@ -106,6 +115,7 @@ export const getDisease = /* GraphQL */ `
         items {
           id
           name
+          slug
           subject
           result
           reference
@@ -130,6 +140,7 @@ export const listDiseases = /* GraphQL */ `
       items {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -140,6 +151,7 @@ export const listDiseases = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -149,6 +161,7 @@ export const listDiseases = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -160,6 +173,7 @@ export const listDiseases = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -183,12 +197,14 @@ export const getMedication = /* GraphQL */ `
     getMedication(id: $id) {
       id
       name
+      slug
       description
       sideEffects
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -199,6 +215,7 @@ export const getMedication = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -208,6 +225,7 @@ export const getMedication = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -219,6 +237,7 @@ export const getMedication = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -248,12 +267,14 @@ export const listMedications = /* GraphQL */ `
       items {
         id
         name
+        slug
         description
         sideEffects
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -276,11 +297,13 @@ export const getOrgan = /* GraphQL */ `
     getOrgan(id: $id) {
       id
       name
+      slug
       description
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -291,6 +314,7 @@ export const getOrgan = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -300,6 +324,7 @@ export const getOrgan = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -311,6 +336,7 @@ export const getOrgan = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -340,11 +366,13 @@ export const listOrgans = /* GraphQL */ `
       items {
         id
         name
+        slug
         description
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -368,10 +396,12 @@ export const getAnimalProduct = /* GraphQL */ `
       id
       family
       name
+      slug
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -382,6 +412,7 @@ export const getAnimalProduct = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -391,6 +422,7 @@ export const getAnimalProduct = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -402,6 +434,7 @@ export const getAnimalProduct = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -421,6 +454,7 @@ export const getAnimalProduct = /* GraphQL */ `
         items {
           id
           name
+          slug
           subject
           result
           reference
@@ -446,10 +480,12 @@ export const listAnimalProducts = /* GraphQL */ `
         id
         family
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -476,10 +512,12 @@ export const getPlantDiet = /* GraphQL */ `
     getPlantDiet(id: $id) {
       id
       name
+      slug
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -490,6 +528,7 @@ export const getPlantDiet = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -499,6 +538,7 @@ export const getPlantDiet = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -510,6 +550,7 @@ export const getPlantDiet = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -540,10 +581,12 @@ export const listPlantDiets = /* GraphQL */ `
       items {
         id
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -568,10 +611,12 @@ export const getPlant = /* GraphQL */ `
       id
       family
       name
+      slug
       diseaseID
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -582,6 +627,7 @@ export const getPlant = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -591,6 +637,7 @@ export const getPlant = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -602,6 +649,7 @@ export const getPlant = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -622,6 +670,7 @@ export const getPlant = /* GraphQL */ `
         items {
           id
           name
+          slug
           subject
           result
           reference
@@ -647,10 +696,12 @@ export const listPlants = /* GraphQL */ `
         id
         family
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -678,6 +729,7 @@ export const getAnimalTest = /* GraphQL */ `
     getAnimalTest(id: $id) {
       id
       name
+      slug
       subject
       result
       reference
@@ -686,10 +738,12 @@ export const getAnimalTest = /* GraphQL */ `
         id
         family
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -722,6 +776,7 @@ export const listAnimalTests = /* GraphQL */ `
       items {
         id
         name
+        slug
         subject
         result
         reference
@@ -730,6 +785,7 @@ export const listAnimalTests = /* GraphQL */ `
           id
           family
           name
+          slug
           diseaseID
           description
           createdAt
@@ -747,6 +803,7 @@ export const getTest = /* GraphQL */ `
     getTest(id: $id) {
       id
       name
+      slug
       subject
       result
       reference
@@ -754,6 +811,7 @@ export const getTest = /* GraphQL */ `
       disease {
         id
         name
+        slug
         knownAs
         overview
         symptoms
@@ -764,6 +822,7 @@ export const getTest = /* GraphQL */ `
         medication {
           id
           name
+          slug
           description
           sideEffects
           diseaseID
@@ -773,6 +832,7 @@ export const getTest = /* GraphQL */ `
         organ {
           id
           name
+          slug
           description
           diseaseID
           createdAt
@@ -784,6 +844,7 @@ export const getTest = /* GraphQL */ `
         plantDiet {
           id
           name
+          slug
           diseaseID
           description
           createdAt
@@ -813,6 +874,7 @@ export const listTests = /* GraphQL */ `
       items {
         id
         name
+        slug
         subject
         result
         reference
@@ -820,6 +882,7 @@ export const listTests = /* GraphQL */ `
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -842,6 +905,7 @@ export const getPlantTest = /* GraphQL */ `
     getPlantTest(id: $id) {
       id
       name
+      slug
       subject
       result
       reference
@@ -850,10 +914,12 @@ export const getPlantTest = /* GraphQL */ `
         id
         family
         name
+        slug
         diseaseID
         disease {
           id
           name
+          slug
           knownAs
           overview
           symptoms
@@ -887,6 +953,7 @@ export const listPlantTests = /* GraphQL */ `
       items {
         id
         name
+        slug
         subject
         result
         reference
@@ -895,6 +962,7 @@ export const listPlantTests = /* GraphQL */ `
           id
           family
           name
+          slug
           diseaseID
           description
           caractaristics

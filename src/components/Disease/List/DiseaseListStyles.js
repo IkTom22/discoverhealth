@@ -4,8 +4,9 @@ const styles={
         paddingBottom: 'none',
         width: "auto",
         marginLeft: "none",
-        marginRight: '1rem'
-        
+        marginRight: '1rem',
+        textDecoration:' none'
+ 
 
     }
 }   

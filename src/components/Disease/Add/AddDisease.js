@@ -9,18 +9,31 @@ import {API, graphqlOperation} from 'aws-amplify';
 import {createDisease}from '../../../graphql/mutations';
 
 
+export function jointWords (sentense){
+    let wordsArr = [];
+    let word=sentense.toLowerCase()
+    wordsArr=word.split(" ")
+    return wordsArr;
+  }
  
 class AddDisease extends Component { 
      state={
         name: '',
-        overview: ''
+        overview: '',
+        slug: ''
     }
 
     handleAddDisease= async e=>{
         e.preventDefault();
+        const{name, overview}=this.state;
+        const slugWords= jointWords(name);
+        console.log(slugWords);
+        const slugJointed=slugWords.join('_')
+
         const input = {
-            name: this.state.name,
-            overview: this.state.overview
+            name: name,
+            overview: overview,
+            slug:slugJointed
         }
         await API.graphql(graphqlOperation(createDisease, {input}))
         this.setState({name: '', overview:''})
