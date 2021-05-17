@@ -12,7 +12,6 @@ class  DiseaseLists extends Component{
 
     componentDidMount = async ()=>{
         this.getDiseases()
-        
     }
 
     getDiseases =async () =>{

@@ -7,9 +7,9 @@ import styles from './DiseaseListStyles';
 
 function DisaseList(props){
     const {classes, name, id} = props;
-
+  
     return (
-             <Link  to={`/admin/${id}`} className={classes.container}>
+             <Link  to={`/admin/${id}`} className={classes.container} >
                 <Button variant="outlined"   color="secondary" >
                     {name} 
                 </Button>

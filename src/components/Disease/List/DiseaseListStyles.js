@@ -6,8 +6,6 @@ const styles={
         marginLeft: "none",
         marginRight: '1rem',
         textDecoration:' none'
- 
-
     }
 }   
 
