@@ -6,7 +6,7 @@ type Disease @model{
     overview: String
     symptoms: String
     causes: [String]
-    effects: [String]
+    riskFactors: [String]
     complications: [String]
     preventions: [String]
     medication: Medication @connection(name:"byMedication")

@@ -1,51 +1,67 @@
 import React,  {useEffect, useReducer} from 'react';
 import {API, graphqlOperation}from 'aws-amplify'
 import {getDisease}from '../../../graphql/queries'
+import diseaseReducer from '../../../reducers/disease.reducer';
+import { Container, Grid, Paper } from '@material-ui/core';
+import {  withStyles } from '@material-ui/core/styles';
+import styles from './infoByDisease.style';
+import DisplayDiseaseInfo from '../../diseaseinfo/diplayDiseaseInfo.js/DisplayDiseaseInfo';
 
 const initialstate={
-    name: '',
+    id: '',
+    name:'',
     slug: '',
     knownAs: [''],
     overview: '',
     symptoms:  '',
     causes: [''],
-    effects: [''],
+    riskFactors: [''],
     complications: [''],
     preventions: ['']
 }
 
-
-// function getMyDisease (props){
-//     console.log(props)
-//     const pageId=props.match.params.slug;
-//     const input={id: {pageId}}
-//  //const input = {id: "215d5175-2dd7-4eeb-9953-b3aac429e69f"}
-//     const result =  API.graphql(graphqlOperation(getDisease, {input}))
-//     console.log(result.data.getDisease.name)
-//     return result.data
-
-// }
-// getMyDisease()
-
-
-
-
-
 const InfoByDisease=(props)=>{
-    console.log(props)
-    const pageId=props.match.params.slug;
-    console.log(pageId)
+    const {classes }= props
+    const [state, dispatch]=useReducer(diseaseReducer, initialstate)
     async function getAdisease(){
+        const pageId=props.match.params.slug;
         const input={id: pageId}
         const result =await API.graphql(graphqlOperation(getDisease, input))
-        console.log(result.data)
+        const currentDisease = result.data.getDisease
+        dispatch({type:'DISPLAY_A_DISEASE', payload: currentDisease })
     }
-    useEffect(()=>{getAdisease()})
+    
+    useEffect(()=>{getAdisease()
+    },[])
     
         return (
-            <h1>Hi</h1>
+            <Container className={classes.root} >
+                <Grid container className={classes.gridone} spacing={2}>
+                    <Grid item xs={4}>
+                        <h1>{state.name}</h1>
+                    </Grid>
+                    
+                </Grid>
+                
+              
+                <Grid container className={classes.gridone
+                } spacing={2}>
+                    <Grid item xs={4}>
+                        <DisplayDiseaseInfo state={state}/>
+                        
+                    </Grid>
+                    <Grid item xs={4}>
+
+                        <Paper className={classes.paper}>Vege</Paper>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <Paper className={classes.paper}>Meat</Paper>
+                    </Grid>
+                </Grid>
+            </Container>
+            
         )
     
     
 }
-export default InfoByDisease;
+export default withStyles(styles)(InfoByDisease);
