@@ -1,9 +1,9 @@
-import { makeStyles } from '@material-ui/core/styles';
+
 
 
 const styles={
     root:{
-        width: '90vw',
+        width: '98vw',
         height:'auto',
         display: 'flex',
         flexDirection: 'column',
@@ -24,7 +24,7 @@ const styles={
 
     },
     paper: {
-      padding: '2rem',
+      padding: '1rem',
       textAlign: 'center',
      
     },

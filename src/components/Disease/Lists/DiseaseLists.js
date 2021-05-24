@@ -16,7 +16,7 @@ class  DiseaseLists extends Component{
 
     getDiseases =async () =>{
         const result = await API.graphql(graphqlOperation(listDiseases))
-        console.log(result.data.listDiseases.items)
+        //console.log(result.data.listDiseases.items)
         this.setState({diseases: result.data.listDiseases.items})
     }
     

@@ -3,9 +3,37 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+import CssBaseline from '@material-ui/core/CssBaseline';
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#4791db',
+      main: '#1976d2',
+      dark: '#115293',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff4081',
+      main: '#f50057',
+      dark: '#c51162',
+      contrastText: '#fff',
+    },
+    success: {
+        light: '#81c784',
+        main: '#4caf50',
+        dark: '#388e3c',
+        contrastText: '#fff',
+    }
+  },
+});
 
 ReactDOM.render(
-    <App />,
+  <MuiThemeProvider theme={theme}>
+    <CssBaseline />
+    <App />
+  </MuiThemeProvider>,
   document.getElementById('root')
 );
 

@@ -1,76 +1,68 @@
 import React , {Component}from 'react';
+import {API, graphqlOperation} from 'aws-amplify';
+import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import styles from './AddDiseaseStyle';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
 import { Container } from '@material-ui/core';
-import {API, graphqlOperation} from 'aws-amplify';
 import {createDisease}from '../../../graphql/mutations';
+import {jointWords} from '../../../helper/helper';
+import styles from './AddDiseaseStyle';
 
 
-export function jointWords (sentense){
-    let wordsArr = [];
-    
-    let word=sentense.toLowerCase()
-    wordsArr=word.split(" ")
-    return wordsArr;
-  }
- 
 class AddDisease extends Component { 
      state={
         name: '',
-        overview: '',
+        // overview: '',
         slug: ''
     }
 
     handleAddDisease= async e=>{
         e.preventDefault();
-        const{name, overview}=this.state;
+        const{name}=this.state;
         const slugWords= jointWords(name);
         console.log(slugWords);
         const slugJointed=slugWords.join('_')
 
         const input = {
             name: name,
-            overview: overview,
+            // overview: overview,
             slug:slugJointed
         }
         await API.graphql(graphqlOperation(createDisease, {input}))
-        this.setState({name: '', overview:''})
+        this.setState({name: ''})
     }
     handleChange=(e)=>this.setState({
         [e.target.name]:e.target.value
     })
+   
     render(){
         const {classes} = this.props;
+         ValidatorForm.addValidationRule('isNameNotEmpty', value => 
+                value !== ''
+        );
         return(
             <Container  className={classes.root}>
                 <Paper variant="outlined" >
-                    <form noValidate autoComplete="off" className={classes.form} onSubmit = {this.handleAddDisease}>
-                        <TextField 
+                    <ValidatorForm noValidate autoComplete="off" className={classes.form} onSubmit = {this.handleAddDisease}>
+                        <TextValidator
                             required  
+                            validators={["isNameNotEmpty"]}
+                            errorMessages={["Enter Disease Name"]}
+                            type="string"
                             id="standard-basic" 
                             label="Add Disease Name" 
                             color="secondary"
                             name='name'
                             value={this.state.name}
                             onChange={this.handleChange}
+                            className={classes.textField}
                          />
-                        <TextField  
-                            required id="outlined-basic" 
-                            label="Add Description" 
-                            variant="outlined" 
-                            multiline  
-                            name='overview'
-                            color="secondary" 
-                            value={this.state.overview}
-                            onChange={this.handleChange}    
-                        />
+
                         <Button variant="outlined" type="submit" className={classes.button} color="secondary" >
                             Add Disease
                         </Button>
-                    </form>
+                    </ValidatorForm>
                 </Paper>
             </Container>
             
@@ -81,3 +73,13 @@ class AddDisease extends Component {
 export default withStyles(styles)(AddDisease);
 
 
+                        // <TextField  
+                        //     required id="outlined-basic" 
+                        //     label="Add Description" 
+                        //     variant="outlined" 
+                        //     multiline  
+                        //     name='overview'
+                        //     color="secondary" 
+                        //     value={this.state.overview}
+                        //     onChange={this.handleChange}    
+                        // />

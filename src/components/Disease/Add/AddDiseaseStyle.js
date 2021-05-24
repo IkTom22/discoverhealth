@@ -8,13 +8,16 @@ const useStyles = theme => ({
         padding:'2rem',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         alignItems:'center',
         minHeight: '12rem',
         '&>*':{
             width:'90%',
             margin:'1rem',
         },
+    },
+    textField:{
+        width: '100%'
     },
     button:{
         width: '30%',

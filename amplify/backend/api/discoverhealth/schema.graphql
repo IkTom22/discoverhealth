@@ -30,7 +30,7 @@ type Organ @model {
   id: ID!
   name: String!
   slug: String
-  description:[String]
+  descriptions :[String]
   diseaseID: String!
   disease: Disease @connection(name: "byOrgan")
 }
@@ -41,7 +41,7 @@ type AnimalProduct @model {
     slug: String
     diseaseID: String!
     disease: Disease @connection(name: "byAnimal")
-    description: [String]
+    descriptions: [String]
     animalTests: [AnimalTest] @connection (name:"byAnimalProduct")
 }
 
@@ -51,7 +51,7 @@ type PlantDiet @model {
     slug: String
     diseaseID: String!
     disease: Disease @connection(name: "byPlantDiet")
-    description: [String]
+    descriptions: [String]
 }
 
 type Plant @model {
@@ -61,7 +61,7 @@ type Plant @model {
     slug: String
     diseaseID: String!
     disease: Disease @connection(name: "byPlant")
-    description: [String]
+    descriptions: [String]
     caractaristics: [String]
     plantTests: [PlantTest] @connection (name:"byPlantTest")
 }
@@ -70,7 +70,7 @@ type AnimalTest @model {
     id: ID!
     name: String
     slug: String
-    subject: String
+    objective: String
     result: String
     reference: String  
     animalPdtID: String!
@@ -80,7 +80,7 @@ type Test @model {
     id: ID!
     name: String
     slug: String
-    subject: String
+    objective: String
     result: String
     reference: String  
     diseaseID: String!
@@ -90,7 +90,7 @@ type PlantTest @model {
     id: ID!
     name: String
     slug: String
-    subject: String
+    objective: String
     result: String
     reference: String  
     plantID: String!

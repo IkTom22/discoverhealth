@@ -10,7 +10,7 @@ import styles from './displayDiseaseInfo.style';
 
 
 
-function DisplayDiseaseInfo(props){
+function DisplayPlantbaseInfo(props){
     const {classes , state}= props
     console.log(state)
     return (
@@ -71,10 +71,66 @@ function DisplayDiseaseInfo(props){
                         {state.symptoms}
                     </Typography>
                 </AccordionDetails>
-        </Accordion>           
+            </Accordion>
+            <Accordion >
+                <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel4a-content"
+                id="panel4a-header"
+                >
+                    <Typography className={classes.heading}>causes</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        {state.causes}
+                    </Typography>
+                </AccordionDetails>
+            </Accordion> 
+            <Accordion >
+                <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel4a-content"
+                id="panel4a-header"
+                >
+                    <Typography className={classes.heading}>riskFactors</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        {state.riskFactors}
+                    </Typography>
+                </AccordionDetails>
+            </Accordion> 
+            <Accordion >
+                <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel4a-content"
+                id="panel4a-header"
+                >
+                    <Typography className={classes.heading}>complications</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        {state.complications}
+                    </Typography>
+                </AccordionDetails>
+            </Accordion> 
+            <Accordion >
+                <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel4a-content"
+                id="panel4a-header"
+                >
+                    <Typography className={classes.heading}>preventions</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        {state.preventions}
+                    </Typography>
+                </AccordionDetails>
+            </Accordion>            
         </Paper>
         
     )
 }
 
-export default withStyles(styles)(DisplayDiseaseInfo);
+export default withStyles(styles)(DisplayPlantbaseInfo);
