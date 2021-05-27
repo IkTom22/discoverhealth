@@ -42,7 +42,9 @@ export const onCreateDisease = /* GraphQL */ `
         id
         name
         slug
-        descriptions
+        descriptions {
+          nextToken
+        }
         diseaseID
         disease {
           id
@@ -68,7 +70,6 @@ export const onCreateDisease = /* GraphQL */ `
           name
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -76,7 +77,7 @@ export const onCreateDisease = /* GraphQL */ `
       }
       plantDiet {
         id
-        name
+        title
         slug
         diseaseID
         disease {
@@ -93,7 +94,9 @@ export const onCreateDisease = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -104,7 +107,6 @@ export const onCreateDisease = /* GraphQL */ `
           name
           slug
           diseaseID
-          descriptions
           caractaristics
           createdAt
           updatedAt
@@ -114,7 +116,7 @@ export const onCreateDisease = /* GraphQL */ `
       tests {
         items {
           id
-          name
+          title
           slug
           objective
           result
@@ -171,7 +173,9 @@ export const onUpdateDisease = /* GraphQL */ `
         id
         name
         slug
-        descriptions
+        descriptions {
+          nextToken
+        }
         diseaseID
         disease {
           id
@@ -197,7 +201,6 @@ export const onUpdateDisease = /* GraphQL */ `
           name
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -205,7 +208,7 @@ export const onUpdateDisease = /* GraphQL */ `
       }
       plantDiet {
         id
-        name
+        title
         slug
         diseaseID
         disease {
@@ -222,7 +225,9 @@ export const onUpdateDisease = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -233,7 +238,6 @@ export const onUpdateDisease = /* GraphQL */ `
           name
           slug
           diseaseID
-          descriptions
           caractaristics
           createdAt
           updatedAt
@@ -243,7 +247,7 @@ export const onUpdateDisease = /* GraphQL */ `
       tests {
         items {
           id
-          name
+          title
           slug
           objective
           result
@@ -300,7 +304,9 @@ export const onDeleteDisease = /* GraphQL */ `
         id
         name
         slug
-        descriptions
+        descriptions {
+          nextToken
+        }
         diseaseID
         disease {
           id
@@ -326,7 +332,6 @@ export const onDeleteDisease = /* GraphQL */ `
           name
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -334,7 +339,7 @@ export const onDeleteDisease = /* GraphQL */ `
       }
       plantDiet {
         id
-        name
+        title
         slug
         diseaseID
         disease {
@@ -351,7 +356,9 @@ export const onDeleteDisease = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -362,7 +369,6 @@ export const onDeleteDisease = /* GraphQL */ `
           name
           slug
           diseaseID
-          descriptions
           caractaristics
           createdAt
           updatedAt
@@ -372,7 +378,7 @@ export const onDeleteDisease = /* GraphQL */ `
       tests {
         items {
           id
-          name
+          title
           slug
           objective
           result
@@ -422,7 +428,6 @@ export const onCreateMedication = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -432,10 +437,9 @@ export const onCreateMedication = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -487,7 +491,6 @@ export const onUpdateMedication = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -497,10 +500,9 @@ export const onUpdateMedication = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -552,7 +554,6 @@ export const onDeleteMedication = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -562,10 +563,9 @@ export const onDeleteMedication = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -589,7 +589,15 @@ export const onCreateOrgan = /* GraphQL */ `
       id
       name
       slug
-      descriptions
+      descriptions {
+        items {
+          id
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       diseaseID
       disease {
         id
@@ -616,7 +624,6 @@ export const onCreateOrgan = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -626,10 +633,9 @@ export const onCreateOrgan = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -653,7 +659,15 @@ export const onUpdateOrgan = /* GraphQL */ `
       id
       name
       slug
-      descriptions
+      descriptions {
+        items {
+          id
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       diseaseID
       disease {
         id
@@ -680,7 +694,6 @@ export const onUpdateOrgan = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -690,10 +703,9 @@ export const onUpdateOrgan = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -717,7 +729,15 @@ export const onDeleteOrgan = /* GraphQL */ `
       id
       name
       slug
-      descriptions
+      descriptions {
+        items {
+          id
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       diseaseID
       disease {
         id
@@ -744,7 +764,6 @@ export const onDeleteOrgan = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -754,10 +773,9 @@ export const onDeleteOrgan = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -766,6 +784,111 @@ export const onDeleteOrgan = /* GraphQL */ `
         }
         tests {
           nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateOrganDesc = /* GraphQL */ `
+  subscription OnCreateOrganDesc {
+    onCreateOrganDesc {
+      id
+      content
+      organ {
+        id
+        name
+        slug
+        descriptions {
+          nextToken
+        }
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateOrganDesc = /* GraphQL */ `
+  subscription OnUpdateOrganDesc {
+    onUpdateOrganDesc {
+      id
+      content
+      organ {
+        id
+        name
+        slug
+        descriptions {
+          nextToken
+        }
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteOrganDesc = /* GraphQL */ `
+  subscription OnDeleteOrganDesc {
+    onDeleteOrganDesc {
+      id
+      content
+      organ {
+        id
+        name
+        slug
+        descriptions {
+          nextToken
+        }
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -808,7 +931,6 @@ export const onCreateAnimalProduct = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -818,10 +940,9 @@ export const onCreateAnimalProduct = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -834,11 +955,20 @@ export const onCreateAnimalProduct = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      descriptions
+      descriptions {
+        items {
+          id
+          content
+          animalProductID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       animalTests {
         items {
           id
-          name
+          title
           slug
           objective
           result
@@ -887,7 +1017,6 @@ export const onUpdateAnimalProduct = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -897,10 +1026,9 @@ export const onUpdateAnimalProduct = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -913,11 +1041,20 @@ export const onUpdateAnimalProduct = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      descriptions
+      descriptions {
+        items {
+          id
+          content
+          animalProductID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       animalTests {
         items {
           id
-          name
+          title
           slug
           objective
           result
@@ -966,7 +1103,6 @@ export const onDeleteAnimalProduct = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -976,10 +1112,9 @@ export const onDeleteAnimalProduct = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -992,11 +1127,20 @@ export const onDeleteAnimalProduct = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      descriptions
+      descriptions {
+        items {
+          id
+          content
+          animalProductID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       animalTests {
         items {
           id
-          name
+          title
           slug
           objective
           result
@@ -1012,11 +1156,131 @@ export const onDeleteAnimalProduct = /* GraphQL */ `
     }
   }
 `;
+export const onCreateAnimalProductDesc = /* GraphQL */ `
+  subscription OnCreateAnimalProductDesc {
+    onCreateAnimalProductDesc {
+      id
+      content
+      animalProductID
+      organ {
+        id
+        family
+        name
+        slug
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        descriptions {
+          nextToken
+        }
+        animalTests {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateAnimalProductDesc = /* GraphQL */ `
+  subscription OnUpdateAnimalProductDesc {
+    onUpdateAnimalProductDesc {
+      id
+      content
+      animalProductID
+      organ {
+        id
+        family
+        name
+        slug
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        descriptions {
+          nextToken
+        }
+        animalTests {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteAnimalProductDesc = /* GraphQL */ `
+  subscription OnDeleteAnimalProductDesc {
+    onDeleteAnimalProductDesc {
+      id
+      content
+      animalProductID
+      organ {
+        id
+        family
+        name
+        slug
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        descriptions {
+          nextToken
+        }
+        animalTests {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreatePlantDiet = /* GraphQL */ `
   subscription OnCreatePlantDiet {
     onCreatePlantDiet {
       id
-      name
+      title
       slug
       diseaseID
       disease {
@@ -1044,7 +1308,6 @@ export const onCreatePlantDiet = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -1054,10 +1317,9 @@ export const onCreatePlantDiet = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -1070,7 +1332,16 @@ export const onCreatePlantDiet = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      descriptions
+      descriptions {
+        items {
+          id
+          content
+          plantDietID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -1080,7 +1351,7 @@ export const onUpdatePlantDiet = /* GraphQL */ `
   subscription OnUpdatePlantDiet {
     onUpdatePlantDiet {
       id
-      name
+      title
       slug
       diseaseID
       disease {
@@ -1108,7 +1379,6 @@ export const onUpdatePlantDiet = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -1118,10 +1388,9 @@ export const onUpdatePlantDiet = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -1134,7 +1403,16 @@ export const onUpdatePlantDiet = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      descriptions
+      descriptions {
+        items {
+          id
+          content
+          plantDietID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -1144,7 +1422,7 @@ export const onDeletePlantDiet = /* GraphQL */ `
   subscription OnDeletePlantDiet {
     onDeletePlantDiet {
       id
-      name
+      title
       slug
       diseaseID
       disease {
@@ -1172,7 +1450,6 @@ export const onDeletePlantDiet = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -1182,10 +1459,9 @@ export const onDeletePlantDiet = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -1198,7 +1474,124 @@ export const onDeletePlantDiet = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      descriptions
+      descriptions {
+        items {
+          id
+          content
+          plantDietID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreatePlantDietDesc = /* GraphQL */ `
+  subscription OnCreatePlantDietDesc {
+    onCreatePlantDietDesc {
+      id
+      content
+      plantDietID
+      plantDiet {
+        id
+        title
+        slug
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        descriptions {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdatePlantDietDesc = /* GraphQL */ `
+  subscription OnUpdatePlantDietDesc {
+    onUpdatePlantDietDesc {
+      id
+      content
+      plantDietID
+      plantDiet {
+        id
+        title
+        slug
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        descriptions {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeletePlantDietDesc = /* GraphQL */ `
+  subscription OnDeletePlantDietDesc {
+    onDeletePlantDietDesc {
+      id
+      content
+      plantDietID
+      plantDiet {
+        id
+        title
+        slug
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        descriptions {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -1237,7 +1630,6 @@ export const onCreatePlant = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -1247,10 +1639,9 @@ export const onCreatePlant = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -1263,12 +1654,21 @@ export const onCreatePlant = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      descriptions
+      descriptions {
+        items {
+          id
+          plantID
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       caractaristics
       plantTests {
         items {
           id
-          name
+          title
           slug
           objective
           result
@@ -1317,7 +1717,6 @@ export const onUpdatePlant = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -1327,10 +1726,9 @@ export const onUpdatePlant = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -1343,12 +1741,21 @@ export const onUpdatePlant = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      descriptions
+      descriptions {
+        items {
+          id
+          plantID
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       caractaristics
       plantTests {
         items {
           id
-          name
+          title
           slug
           objective
           result
@@ -1397,7 +1804,6 @@ export const onDeletePlant = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -1407,10 +1813,9 @@ export const onDeletePlant = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -1423,12 +1828,21 @@ export const onDeletePlant = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      descriptions
+      descriptions {
+        items {
+          id
+          plantID
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       caractaristics
       plantTests {
         items {
           id
-          name
+          title
           slug
           objective
           result
@@ -1444,11 +1858,134 @@ export const onDeletePlant = /* GraphQL */ `
     }
   }
 `;
+export const onCreatePlantDesc = /* GraphQL */ `
+  subscription OnCreatePlantDesc {
+    onCreatePlantDesc {
+      id
+      plantID
+      content
+      Plant {
+        id
+        family
+        name
+        slug
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        descriptions {
+          nextToken
+        }
+        caractaristics
+        plantTests {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdatePlantDesc = /* GraphQL */ `
+  subscription OnUpdatePlantDesc {
+    onUpdatePlantDesc {
+      id
+      plantID
+      content
+      Plant {
+        id
+        family
+        name
+        slug
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        descriptions {
+          nextToken
+        }
+        caractaristics
+        plantTests {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeletePlantDesc = /* GraphQL */ `
+  subscription OnDeletePlantDesc {
+    onDeletePlantDesc {
+      id
+      plantID
+      content
+      Plant {
+        id
+        family
+        name
+        slug
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        descriptions {
+          nextToken
+        }
+        caractaristics
+        plantTests {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateAnimalTest = /* GraphQL */ `
   subscription OnCreateAnimalTest {
     onCreateAnimalTest {
       id
-      name
+      title
       slug
       objective
       result
@@ -1474,7 +2011,9 @@ export const onCreateAnimalTest = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         animalTests {
           nextToken
         }
@@ -1490,7 +2029,7 @@ export const onUpdateAnimalTest = /* GraphQL */ `
   subscription OnUpdateAnimalTest {
     onUpdateAnimalTest {
       id
-      name
+      title
       slug
       objective
       result
@@ -1516,7 +2055,9 @@ export const onUpdateAnimalTest = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         animalTests {
           nextToken
         }
@@ -1532,7 +2073,7 @@ export const onDeleteAnimalTest = /* GraphQL */ `
   subscription OnDeleteAnimalTest {
     onDeleteAnimalTest {
       id
-      name
+      title
       slug
       objective
       result
@@ -1558,7 +2099,9 @@ export const onDeleteAnimalTest = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         animalTests {
           nextToken
         }
@@ -1574,7 +2117,7 @@ export const onCreateTest = /* GraphQL */ `
   subscription OnCreateTest {
     onCreateTest {
       id
-      name
+      title
       slug
       objective
       result
@@ -1605,7 +2148,6 @@ export const onCreateTest = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -1615,10 +2157,9 @@ export const onCreateTest = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -1640,7 +2181,7 @@ export const onUpdateTest = /* GraphQL */ `
   subscription OnUpdateTest {
     onUpdateTest {
       id
-      name
+      title
       slug
       objective
       result
@@ -1671,7 +2212,6 @@ export const onUpdateTest = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -1681,10 +2221,9 @@ export const onUpdateTest = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -1706,7 +2245,7 @@ export const onDeleteTest = /* GraphQL */ `
   subscription OnDeleteTest {
     onDeleteTest {
       id
-      name
+      title
       slug
       objective
       result
@@ -1737,7 +2276,6 @@ export const onDeleteTest = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -1747,10 +2285,9 @@ export const onDeleteTest = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -1772,7 +2309,7 @@ export const onCreatePlantTest = /* GraphQL */ `
   subscription OnCreatePlantTest {
     onCreatePlantTest {
       id
-      name
+      title
       slug
       objective
       result
@@ -1798,7 +2335,9 @@ export const onCreatePlantTest = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         caractaristics
         plantTests {
           nextToken
@@ -1815,7 +2354,7 @@ export const onUpdatePlantTest = /* GraphQL */ `
   subscription OnUpdatePlantTest {
     onUpdatePlantTest {
       id
-      name
+      title
       slug
       objective
       result
@@ -1841,7 +2380,9 @@ export const onUpdatePlantTest = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         caractaristics
         plantTests {
           nextToken
@@ -1858,7 +2399,7 @@ export const onDeletePlantTest = /* GraphQL */ `
   subscription OnDeletePlantTest {
     onDeletePlantTest {
       id
-      name
+      title
       slug
       objective
       result
@@ -1884,7 +2425,9 @@ export const onDeletePlantTest = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         caractaristics
         plantTests {
           nextToken

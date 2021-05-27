@@ -42,7 +42,9 @@ export const getDisease = /* GraphQL */ `
         id
         name
         slug
-        descriptions
+        descriptions {
+          nextToken
+        }
         diseaseID
         disease {
           id
@@ -68,7 +70,6 @@ export const getDisease = /* GraphQL */ `
           name
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -76,7 +77,7 @@ export const getDisease = /* GraphQL */ `
       }
       plantDiet {
         id
-        name
+        title
         slug
         diseaseID
         disease {
@@ -93,7 +94,9 @@ export const getDisease = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -104,7 +107,6 @@ export const getDisease = /* GraphQL */ `
           name
           slug
           diseaseID
-          descriptions
           caractaristics
           createdAt
           updatedAt
@@ -114,7 +116,7 @@ export const getDisease = /* GraphQL */ `
       tests {
         items {
           id
-          name
+          title
           slug
           objective
           result
@@ -162,7 +164,6 @@ export const listDiseases = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -172,10 +173,9 @@ export const listDiseases = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -226,7 +226,6 @@ export const getMedication = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -236,10 +235,9 @@ export const getMedication = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -298,7 +296,15 @@ export const getOrgan = /* GraphQL */ `
       id
       name
       slug
-      descriptions
+      descriptions {
+        items {
+          id
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       diseaseID
       disease {
         id
@@ -325,7 +331,6 @@ export const getOrgan = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -335,10 +340,9 @@ export const getOrgan = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -367,7 +371,9 @@ export const listOrgans = /* GraphQL */ `
         id
         name
         slug
-        descriptions
+        descriptions {
+          nextToken
+        }
         diseaseID
         disease {
           id
@@ -380,6 +386,66 @@ export const listOrgans = /* GraphQL */ `
           riskFactors
           complications
           preventions
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getOrganDesc = /* GraphQL */ `
+  query GetOrganDesc($id: ID!) {
+    getOrganDesc(id: $id) {
+      id
+      content
+      organ {
+        id
+        name
+        slug
+        descriptions {
+          nextToken
+        }
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listOrganDescs = /* GraphQL */ `
+  query ListOrganDescs(
+    $filter: ModelOrganDescFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listOrganDescs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        content
+        organ {
+          id
+          name
+          slug
+          diseaseID
           createdAt
           updatedAt
         }
@@ -423,7 +489,6 @@ export const getAnimalProduct = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -433,10 +498,9 @@ export const getAnimalProduct = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -449,11 +513,20 @@ export const getAnimalProduct = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      descriptions
+      descriptions {
+        items {
+          id
+          content
+          animalProductID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       animalTests {
         items {
           id
-          name
+          title
           slug
           objective
           result
@@ -496,9 +569,82 @@ export const listAnimalProducts = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         animalTests {
           nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getAnimalProductDesc = /* GraphQL */ `
+  query GetAnimalProductDesc($id: ID!) {
+    getAnimalProductDesc(id: $id) {
+      id
+      content
+      animalProductID
+      organ {
+        id
+        family
+        name
+        slug
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        descriptions {
+          nextToken
+        }
+        animalTests {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listAnimalProductDescs = /* GraphQL */ `
+  query ListAnimalProductDescs(
+    $filter: ModelAnimalProductDescFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAnimalProductDescs(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        content
+        animalProductID
+        organ {
+          id
+          family
+          name
+          slug
+          diseaseID
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -511,7 +657,7 @@ export const getPlantDiet = /* GraphQL */ `
   query GetPlantDiet($id: ID!) {
     getPlantDiet(id: $id) {
       id
-      name
+      title
       slug
       diseaseID
       disease {
@@ -539,7 +685,6 @@ export const getPlantDiet = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -549,10 +694,9 @@ export const getPlantDiet = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -565,7 +709,16 @@ export const getPlantDiet = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      descriptions
+      descriptions {
+        items {
+          id
+          content
+          plantDietID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -580,7 +733,7 @@ export const listPlantDiets = /* GraphQL */ `
     listPlantDiets(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
+        title
         slug
         diseaseID
         disease {
@@ -597,7 +750,71 @@ export const listPlantDiets = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getPlantDietDesc = /* GraphQL */ `
+  query GetPlantDietDesc($id: ID!) {
+    getPlantDietDesc(id: $id) {
+      id
+      content
+      plantDietID
+      plantDiet {
+        id
+        title
+        slug
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        descriptions {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listPlantDietDescs = /* GraphQL */ `
+  query ListPlantDietDescs(
+    $filter: ModelPlantDietDescFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPlantDietDescs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        content
+        plantDietID
+        plantDiet {
+          id
+          title
+          slug
+          diseaseID
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -638,7 +855,6 @@ export const getPlant = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -648,10 +864,9 @@ export const getPlant = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -664,12 +879,21 @@ export const getPlant = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      descriptions
+      descriptions {
+        items {
+          id
+          plantID
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       caractaristics
       plantTests {
         items {
           id
-          name
+          title
           slug
           objective
           result
@@ -712,10 +936,81 @@ export const listPlants = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         caractaristics
         plantTests {
           nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getPlantDesc = /* GraphQL */ `
+  query GetPlantDesc($id: ID!) {
+    getPlantDesc(id: $id) {
+      id
+      plantID
+      content
+      Plant {
+        id
+        family
+        name
+        slug
+        diseaseID
+        disease {
+          id
+          name
+          slug
+          knownAs
+          overview
+          symptoms
+          causes
+          riskFactors
+          complications
+          preventions
+          createdAt
+          updatedAt
+        }
+        descriptions {
+          nextToken
+        }
+        caractaristics
+        plantTests {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listPlantDescs = /* GraphQL */ `
+  query ListPlantDescs(
+    $filter: ModelPlantDescFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPlantDescs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        plantID
+        content
+        Plant {
+          id
+          family
+          name
+          slug
+          diseaseID
+          caractaristics
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -728,7 +1023,7 @@ export const getAnimalTest = /* GraphQL */ `
   query GetAnimalTest($id: ID!) {
     getAnimalTest(id: $id) {
       id
-      name
+      title
       slug
       objective
       result
@@ -754,7 +1049,9 @@ export const getAnimalTest = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         animalTests {
           nextToken
         }
@@ -775,7 +1072,7 @@ export const listAnimalTests = /* GraphQL */ `
     listAnimalTests(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
+        title
         slug
         objective
         result
@@ -787,7 +1084,6 @@ export const listAnimalTests = /* GraphQL */ `
           name
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -802,7 +1098,7 @@ export const getTest = /* GraphQL */ `
   query GetTest($id: ID!) {
     getTest(id: $id) {
       id
-      name
+      title
       slug
       objective
       result
@@ -833,7 +1129,6 @@ export const getTest = /* GraphQL */ `
           id
           name
           slug
-          descriptions
           diseaseID
           createdAt
           updatedAt
@@ -843,10 +1138,9 @@ export const getTest = /* GraphQL */ `
         }
         plantDiet {
           id
-          name
+          title
           slug
           diseaseID
-          descriptions
           createdAt
           updatedAt
         }
@@ -873,7 +1167,7 @@ export const listTests = /* GraphQL */ `
     listTests(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
+        title
         slug
         objective
         result
@@ -904,7 +1198,7 @@ export const getPlantTest = /* GraphQL */ `
   query GetPlantTest($id: ID!) {
     getPlantTest(id: $id) {
       id
-      name
+      title
       slug
       objective
       result
@@ -930,7 +1224,9 @@ export const getPlantTest = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        descriptions
+        descriptions {
+          nextToken
+        }
         caractaristics
         plantTests {
           nextToken
@@ -952,7 +1248,7 @@ export const listPlantTests = /* GraphQL */ `
     listPlantTests(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
+        title
         slug
         objective
         result
@@ -964,7 +1260,6 @@ export const listPlantTests = /* GraphQL */ `
           name
           slug
           diseaseID
-          descriptions
           caractaristics
           createdAt
           updatedAt

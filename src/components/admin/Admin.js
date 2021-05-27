@@ -6,8 +6,7 @@ import AddDisease from '../Disease/Add/AddDisease'
 import DiseaseLists from '../Disease/Lists/DiseaseLists';
 import '../../App.css';
 
-
-
+   
 Amplify.configure(awsConfig);
 
 function Admin(){

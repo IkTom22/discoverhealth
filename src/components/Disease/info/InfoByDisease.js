@@ -6,7 +6,7 @@ import { Container, Grid, Paper } from '@material-ui/core';
 import {  withStyles } from '@material-ui/core/styles';
 import styles from './infoByDisease.style';
 import DisplayDiseaseInfo from '../../diseaseinfo/display/DisplayDiseaseInfo';
-import AddPlantdietInfo from '../../plantbaseInfo/add/AddPlantdietInfo';
+import AddPlantInfo from '../../plantbaseInfo/add/AddPlantInfo';
 
 const initialstate={
     id: '',
@@ -36,7 +36,6 @@ const InfoByDisease=(props)=>{
         dispatch({type:'DISPLAY_A_DISEASE', payload: currentDisease })
         
     }
-    
     useEffect(()=>{getAdisease()
     },[])
 
@@ -53,7 +52,8 @@ const InfoByDisease=(props)=>{
                         <DisplayDiseaseInfo state={state}/> 
                     </Grid>
                     <Grid item xs={6}>
-                        <AddPlantdietInfo diseaseID={state.id}/>
+                        <AddPlantInfo diseaseID={state.id}/>
+                        
                     </Grid>
                     <Grid item xs={6}>
                         <Paper className={classes.paper}>Meat</Paper>

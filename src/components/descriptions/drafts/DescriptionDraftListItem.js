@@ -9,17 +9,19 @@ import styles from './descriptionDraftListItem.styles';
 
 
 function DescriptionDraftListItem(props){
-    const {classes} =props
+    
+    const {classes, key} =props
+    console.log(key)
     return(
         <Paper className={classes.container}>
         
             <div>{props.description}</div>
             <div className={classes.buttonContainer}>
-                <IconButton color="primary" aria-label="add to shopping cart">
+                <IconButton color="primary" aria-label="edit">
                     <EditIcon />
                 </IconButton>
             
-                <IconButton color="secondary" aria-label="adelete">
+                <IconButton color="secondary" aria-label="delete">
                     <DeleteIcon/>
                 </IconButton>
             </div>

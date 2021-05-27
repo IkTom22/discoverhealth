@@ -16,83 +16,142 @@ type Disease @model{
     plants: [Plant] @connection(name: "byPlant")
     tests: [Test]@connection(name: "byTest")
 }
-type Medication @model {
-  id: ID!
-  name: String!
-  slug: String
-  description: String
-  sideEffects: [String]
-  diseaseID: String!
-  disease: Disease @connection(name:"byMedication")
-}
+# for later
+# type Medication @model {
+#   id: ID!
+#   name: String!
+#   slug: String
+#   description: String
+#   sideEffects: [String]
+#   diseaseID: String!
+#   disease: Disease @connection(name:"byMedication")
+# }
 
 type Organ @model {
   id: ID!
   name: String!
   slug: String
-  descriptions :[String]
+  descriptions :[String] 
   diseaseID: String!
   disease: Disease @connection(name: "byOrgan")
+  
 }
+
+# type Organ @model {
+#   id: ID!
+#   name: String!
+#   slug: String
+#   descriptions :[OrganDesc] @connection(name: "byOrganDescription")
+#   diseaseID: String!
+#   disease: Disease @connection(name: "byOrgan")
+# }
+# type OrganDesc @model {
+#     id: ID!
+#     content: String
+#     organ: Organ @connection(name: "byOrganDescription")
+# }
+
 type AnimalProduct @model {
     id: ID!
-    family: String!
+    family: String
     name: String
     slug: String
     diseaseID: String!
     disease: Disease @connection(name: "byAnimal")
-    descriptions: [String]
-    animalTests: [AnimalTest] @connection (name:"byAnimalProduct")
+    descriptions: [String]  
+    caractaristics: [String]
+    # animalTests: [AnimalTest] @connection (name:"byAnimalProduct")
 }
-
-type PlantDiet @model {
+# type AnimalProduct @model {
+#     id: ID!
+#     family: String
+#     name: String
+#     slug: String
+#     diseaseID: String!
+#     disease: Disease @connection(name: "byAnimal")
+#     descriptions: [AnimalProductDesc]  @connection(name: "byAnimalProductDescription")
+#     animalTests: [AnimalTest] @connection (name:"byAnimalProduct")
+# }
+# type AnimalProductDesc @model {
+#     id: ID!
+#     content: String
+#     a
+#     nimalProductID: String
+#     organ: AnimalProduct @connection(name: "byAnimalProductDescription")
+# }
+# type PlantDiet @model {
+#     id: ID!
+#     title: String
+#     slug: String
+#     diseaseID: String!
+#     disease: Disease @connection(name: "byPlantDiet")
+#     descriptions: [PlantDietDesc] @connection(name: "byPlantDietDescription")
+# }
+type PlantDietDesc @model {
     id: ID!
-    name: String
-    slug: String
-    diseaseID: String!
-    disease: Disease @connection(name: "byPlantDiet")
-    descriptions: [String]
+    content: String
+    plantDietID: String
+    plantDiet: PlantDiet @connection(name: "byPlantDietDescription")
 }
 
 type Plant @model {
     id: ID!
-    family: String!
-    name: String!
+    family: String
+    name: String
     slug: String
     diseaseID: String!
     disease: Disease @connection(name: "byPlant")
-    descriptions: [String]
-    caractaristics: [String]
-    plantTests: [PlantTest] @connection (name:"byPlantTest")
+    descriptions: [String] 
+    caractaristics:[ String]
+    # plantTests: [PlantTest] @connection (name:"byPlantTest")
 }
 
-type AnimalTest @model {
-    id: ID!
-    name: String
-    slug: String
-    objective: String
-    result: String
-    reference: String  
-    animalPdtID: String!
-    animalPdt: AnimalProduct @connection (name:"byAnimalProduct")
-}
+# type Plant @model {
+#     id: ID!
+#     family: String
+#     name: String
+#     slug: String
+#     diseaseID: String!
+#     disease: Disease @connection(name: "byPlant")
+#     descriptions: [PlantDesc] @connection(name: "byPlantDescription")
+#     caractaristics:[ String]
+#     plantTests: [PlantTest] @connection (name:"byPlantTest")
+# }
+# type PlantDesc @model {
+#     id: ID!
+#     plantID: String
+#     content: String
+#     Plant: Plant @connection(name: "byPlantDescription")
+# }
+# type AnimalTest @model {
+#     id: ID!
+#     title: String
+#     slug: String
+#     objective: String
+#     result: String
+#     reference: String  
+#     animalPdtID: String!
+#     animalPdt: AnimalProduct @connection (name:"byAnimalProduct")
+# }
 type Test @model {
     id: ID!
-    name: String
+    title: String
     slug: String
     objective: String
     result: String
     reference: String  
     diseaseID: String!
     disease: Disease @connection(name: "byTest")
+    plantID: String
+    amimalID: String
 }
-type PlantTest @model {
-    id: ID!
-    name: String
-    slug: String
-    objective: String
-    result: String
-    reference: String  
-    plantID: String!
-    plant: Plant @connection (name:"byPlantTest")
-}
+# type PlantTest @model {
+#     id: ID!
+#     title: String
+#     slug: String
+#     objective: String
+#     result: String
+#     reference: String  
+#     plantID: String!
+#     plant: Plant @connection (name:"byPlantTest")
+# }

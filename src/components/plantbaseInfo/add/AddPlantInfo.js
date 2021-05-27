@@ -2,32 +2,23 @@ import React, {Component} from 'react';
 import {API, graphqlOperation} from 'aws-amplify';
 import {createPlantDiet} from '../../../graphql/mutations';
 //import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
-import {Paper, Button, IconButton, Container,  TextareaAutosize, TextField } from '@material-ui/core';
+import {Paper, IconButton, Container,  TextareaAutosize, TextField } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import { withStyles } from '@material-ui/core/styles';
-import styles from './addPlantdiet.styles';
+import styles from './addPlantInfo.styles';
 import DescriptionDraftListItem from '../../descriptions/drafts/DescriptionDraftListItem';
-import { green, purple } from '@material-ui/core/colors';
+import { v4 as uuidv4 } from 'uuid';
+import{ ColorButton} from '../../../styles/colors'
 
-const ColorButton = withStyles((theme) => ({
-    root: {
-    //   color: theme.palette.getContrastText(purple[500]),
-    //   backgroundColor: purple[500],
-      color: green['A400'],
-    //   '&:hover': {
-    //     backgroundColor: purple[700],
-    //   },
-    },
-  }))(Button);
 
-class AddPlantdietInfo extends Component {
+class AddPlantInfo extends Component {
     constructor(props){
         super(props)
-        console.log(props)
+        console.log(props.diseaseID)
         this.state = {   
             id: '',             
-            name: '',
-            diseaseID: this.props.diseaseID ,
+            title: '',
+            diseaseID: props.diseaseID ,
             description: '',
             descriptions:[]
             
@@ -51,20 +42,28 @@ class AddPlantdietInfo extends Component {
      handleAddPlantDiet=async (event)=>{
         event.preventDefault();
         
-        const{diseaseID}= this.props
+        const {title, diseaseID, descriptions} = this.state    
 
         const input = {
-            diseaseID: diseaseID
+            title: title,
+            diseaseID: diseaseID,
+            descriptions: descriptions.content
         }
         await API.graphql(graphqlOperation(createPlantDiet, {input}))
-        this.setState({diseaseID: ''})
-       console.log(this.state)
+        this.setState({
+            title: '',
+            description: {id: '', content: ''},
+            descriptions: []
+        })
+
     }
-    
+    handleEdit = (e)=>{
+        this.setState({discription: {id:'', content: ''}})
+    }
     render(){
         const {classes}= this.props
         
-        const {name,  diseaseID, description, descriptions, id} = this.state
+        const {title,  description, descriptions, id} = this.state
         
         return(
             <Container  className={classes.root}>
@@ -76,10 +75,10 @@ class AddPlantdietInfo extends Component {
                             required  
                             type="string"
                             id="standard-basic" 
-                            label="Name" 
+                            label="Title" 
                             color="secondary"
-                            name='name'
-                            value={name}
+                            name='title'
+                            value={title}
                             onChange={this.handleChange}
                             className={classes.textField}
                          />
@@ -108,7 +107,7 @@ class AddPlantdietInfo extends Component {
                                     color="secondary"
                                     name='description'
                                     rows="3"
-                                    value={this.state.description}
+                                    value={description.content}
                                     onChange={this.handleChange}
                                     className={classes.textField}
                                 />
@@ -116,7 +115,7 @@ class AddPlantdietInfo extends Component {
                         </div>
                         {descriptions !==[] &&
                             <div >
-                                {descriptions.map(description =><DescriptionDraftListItem key={description} description={description}/>)}
+                                {descriptions.map(description =><DescriptionDraftListItem key={1} description={description} {...this.state}/>)}
                             </div>
                         }
                         </Container>
@@ -134,4 +133,4 @@ class AddPlantdietInfo extends Component {
    
 }
 
-export default withStyles(styles)(AddPlantdietInfo);
+export default withStyles(styles)(AddPlantInfo);

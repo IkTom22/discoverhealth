@@ -1,5 +1,5 @@
 const initialstate = []
-const plantDietReducer = (state=initialstate, action)=>{
+const plantReducer = (state=initialstate, action)=>{
     switch(action.type){
         case 'GET_ID':
             return {
@@ -10,4 +10,4 @@ const plantDietReducer = (state=initialstate, action)=>{
                 return state
     }
 }
-export default plantDietReducer
+export default plantReducer

@@ -10,7 +10,7 @@ import styles from './displayDiseaseInfo.style';
 
 
 
-function DisplayPlantbaseInfo(props){
+function DisplayPlantInfo(props){
     const {classes , state}= props
     console.log(state)
     return (
@@ -133,4 +133,4 @@ function DisplayPlantbaseInfo(props){
     )
 }
 
-export default withStyles(styles)(DisplayPlantbaseInfo);
+export default withStyles(styles)(DisplayPlantInfo);
