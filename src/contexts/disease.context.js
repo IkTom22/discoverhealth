@@ -1,8 +1,10 @@
 import React, {createContext} from 'react';
-import {}from '../hooks/useLocalStorageReducer';
-import diseaseReducer from '../reducers/disease.reducer';
+import { useLocalStorageReducer }from '../hooks/useLocalStorageReducer';
+import diseasesReducer from '../reducers/disease.reducer';
 
-const defaultDiseaseState = [
+
+
+const defaultDiseasesState = [
     {
         id: '',
         name:'',
@@ -16,7 +18,16 @@ const defaultDiseaseState = [
         preventions: ['']
     }
 ]
-export const DiseaseContext = createContext();
+export const DiseasesContext = createContext();
 export const DispatchDContext= createContext();
 
-export const DiseaseProvider = memo()
+export function DiseasesProvider (props){
+    const [diseases, dispatch]= useLocalStorageReducer("diseases", defaultDiseasesState, diseasesReducer)
+    return (
+        <DiseasesContext.Provider value={diseases}>
+            <DispatchDContext.Provider value={dispatch}>
+                {props.children}
+            </DispatchDContext.Provider>
+        </DiseasesContext.Provider>
+    )
+}

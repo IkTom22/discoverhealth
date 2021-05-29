@@ -12,6 +12,7 @@ Amplify.configure(awsConfig);
 function Admin(){
     return (
         
+        
             <Container maxWidth="lg">
                 <AddDisease />
                 <DiseaseLists />

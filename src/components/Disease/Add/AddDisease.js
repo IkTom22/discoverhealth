@@ -1,50 +1,34 @@
-import React , {Component}from 'react';
-import {API, graphqlOperation} from 'aws-amplify';
+import React , {useContext}from 'react';
+//import {API, graphqlOperation} from 'aws-amplify';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
-import {createDisease}from '../../../graphql/mutations';
+import {DispatchDContext} from '../../../contexts/disease.context';
+import useInputState from '../../../hooks/useInputState';
 import {jointWords} from '../../../helper/helper';
 import styles from './AddDiseaseStyle';
 
 
-class AddDisease extends Component { 
-     state={
-        name: '',
-        // overview: '',
-        slug: ''
-    }
-
-    handleAddDisease= async e=>{
-        e.preventDefault();
-        const{name}=this.state;
-        const slugWords= jointWords(name);
-        console.log(slugWords);
-        const slugJointed=slugWords.join('_')
-
-        const input = {
-            name: name,
-            // overview: overview,
-            slug:slugJointed
-        }
-        await API.graphql(graphqlOperation(createDisease, {input}))
-        this.setState({name: ''})
-    }
-    handleChange=(e)=>this.setState({
-        [e.target.name]:e.target.value
-    })
-   
-    render(){
-        const {classes} = this.props;
-         ValidatorForm.addValidationRule('isNameNotEmpty', value => 
+const  AddDisease= (props)=> { 
+    const {classes} = props;
+    const [value, handleChange, reset] = useInputState("");
+    const dispatch= useContext(DispatchDContext)
+    ValidatorForm.addValidationRule('isNameNotEmpty', value => 
                 value !== ''
         );
+    const handleAddDisease=  e=>{
+        e.preventDefault();
+        const slugWords= jointWords(value);
+        const slugJointed=slugWords.join('_')
+        dispatch({type: "CREATE_DISEASE", name:value, slug: slugJointed })
+        reset();
+    } 
         return(
             <Container  className={classes.root}>
                 <Paper variant="outlined" >
-                    <ValidatorForm noValidate autoComplete="off" className={classes.form} onSubmit = {this.handleAddDisease}>
+                    <ValidatorForm noValidate autoComplete="off" className={classes.form} onSubmit = {handleAddDisease}>
                         <TextValidator
                             required  
                             validators={["isNameNotEmpty"]}
@@ -54,8 +38,8 @@ class AddDisease extends Component {
                             label="Add Disease Name" 
                             color="secondary"
                             name='name'
-                            value={this.state.name}
-                            onChange={this.handleChange}
+                            value={value}
+                            onChange={handleChange}
                             className={classes.textField}
                          />
 
@@ -67,19 +51,8 @@ class AddDisease extends Component {
             </Container>
             
         )
-    }
+   
     
 }
 export default withStyles(styles)(AddDisease);
 
-
-                        // <TextField  
-                        //     required id="outlined-basic" 
-                        //     label="Add Description" 
-                        //     variant="outlined" 
-                        //     multiline  
-                        //     name='overview'
-                        //     color="secondary" 
-                        //     value={this.state.overview}
-                        //     onChange={this.handleChange}    
-                        // />

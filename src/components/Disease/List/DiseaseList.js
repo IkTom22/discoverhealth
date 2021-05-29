@@ -7,15 +7,19 @@ import styles from './DiseaseListStyles';
 
 function DisaseList(props){
     const {classes, name, id} = props;
-  
-    return (
-             <Link  to={`/admin/${id}`} className={classes.container} >
-                <Button variant="outlined"   color="secondary" >
-                    {name} 
-                </Button>
-            </Link>
 
-    )
+  return (
+            
+    <Link  to={`/admin/${id}`} className={classes.container} >
+    {name !=='' &&
+       <Button variant="outlined"   color="secondary" >
+           {name} 
+       </Button>
+    }
+   </Link>
+
+    ) 
+    
 }
 
 export default withStyles(styles)(DisaseList);

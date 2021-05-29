@@ -1,27 +1,35 @@
-import React, {Component} from 'react';
-import {API, graphqlOperation} from 'aws-amplify'
+import React, {useContext} from 'react';
+//import {API, graphqlOperation} from 'aws-amplify'
 import DiseaseList from '../List/DiseaseList';
-import { listDiseases } from '../../../graphql/queries';
+import {DiseasesContext} from '../../../contexts/disease.context'
+//import { listDiseases } from '../../../graphql/queries';
 import Grid from '@material-ui/core/Grid';
 
 
-class  DiseaseLists extends Component{
-    state={
-        diseases: []
-    }
+const DiseaseLists =(props) =>{
 
-    componentDidMount = async ()=>{
-        this.getDiseases()
-    }
+    const diseases = useContext(DiseasesContext)
+   
+    console.log(diseases)
 
-    getDiseases =async () =>{
-        const result = await API.graphql(graphqlOperation(listDiseases))
-        //console.log(result.data.listDiseases.items)
-        this.setState({diseases: result.data.listDiseases.items})
-    }
+
+    // state={
+    //     diseases: []
+    // }
+
+    // componentDidMount = async ()=>{
+    //     this.getDiseases()
+    // }
+
+    // const getDiseases =async () =>{
+    //     // const result = await API.graphql(graphqlOperation(listDiseases))
+    //     //console.log(result.data.listDiseases.items)
+    //     // this.setState({diseases: result.data.listDiseases.items})
+        
+    // }
     
-    render(){
-        const {diseases} = this.state
+  
+       
        
         return (
             <Grid
@@ -30,12 +38,12 @@ class  DiseaseLists extends Component{
                 alignItems="center"
                 
             >
-                {diseases.map((disease) =><DiseaseList  name={disease.name} key={disease.id} {...disease}/>)}
+            {diseases.map((disease) =><DiseaseList  name={disease.name} key={disease.id} {...disease}/>)}
+
             </Grid>
         )
         
-    } 
-    
+        
         
 }
     

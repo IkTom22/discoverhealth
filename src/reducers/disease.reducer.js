@@ -1,18 +1,14 @@
+import { v4 as uuidv4 } from 'uuid';
 
 
-const initialstate=[]
-
-const diseaseReducer = (state=initialstate, action)=>{
+const diseasesReducer = (state, action)=>{
     switch(action.type){
-        case 'DISPLAY_A_DISEASE':
-            return {
-                ...state, 
-                ...action.payload
-               
-            }
+        case 'CREATE_DISEASE':
+            return [...state, {id: uuidv4(), name: action.name, slug: action.slug}]
+
            default:
                 return state 
     }
 }
 
-export default diseaseReducer;
+export default diseasesReducer;
