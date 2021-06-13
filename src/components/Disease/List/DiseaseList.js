@@ -10,7 +10,7 @@ function DisaseList(props){
 
   return (
             
-    <Link  to={`/admin/${id}`} className={classes.container} >
+    <Link  to={`/admin/${id}`} className={classes.container}  >
     {name !=='' &&
        <Button variant="outlined"   color="secondary" >
            {name} 

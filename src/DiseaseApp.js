@@ -1,26 +1,26 @@
-import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import MenuBar from './components/headerbar/MenuBar';
-import MainApp from './MainApp';
-import Admin from './components/admin/Admin';
-import InfoByDisease from './components/Disease/info/InfoByDisease';
-
-
-
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import MenuBar from "./components/headerbar/MenuBar";
+import MainApp from "./MainApp";
+import Admin from "./components/admin/Admin";
+import InfoByDisease from "./components/Disease/info/InfoByDisease";
 
 function DiseaseApp() {
   return (
-  
     <BrowserRouter>
-      <MenuBar/>
+      <MenuBar />
       <Switch>
         <Route exact path="/admin">
-          <Admin/>
+          <Admin />
         </Route>
-        <Route path="/admin/:slug" render={(props)=>{return<InfoByDisease {...props} />}}
+        <Route
+          path="/admin/:slug"
+          render={(props) => {
+            return <InfoByDisease {...props} />;
+          }}
         />
         <Route exact path="/">
-          <MainApp/>
+          <MainApp />
         </Route>
       </Switch>
     </BrowserRouter>
